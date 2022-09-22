@@ -5,4 +5,5 @@ This is a repository with files on the smart medicine box project as per the req
 ## Authors
 
 [Sylvia Jebet](https://github.com/sylviajebet)
-[Isaac Kamau](https://github.com/)
+
+[Isaac Kamau](https://github.com/Isaac007-ike)
