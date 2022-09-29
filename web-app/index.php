@@ -16,17 +16,22 @@
 		
 		<body>
             <div class="container">
-            <h2>Patient Records/h2>
+            <h2>Patient Records</h2>
             <p>Mock table here</p>            
             <table class="table table-striped">
 
             <?php
                  //Check database
-                while count is in dosages(dose_id){
-                    $id=count;
+                
+                $id = 1;
+                $total = "SELECT COUNT(*) FROM dosages;";
+
+                while ($id <= $total) {
                     $sql="SELECT * FROM dosages WHERE id='$id'";
                     $result=mysqli_query($db,$sql);
                     $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+                    print ("I'm here!");
                     
                     if(mysqli_num_rows($result) == 1)
                     {
@@ -43,18 +48,18 @@
                 </thead>
                 <tbody>
                     <tr>
-                    <td>$row["patient_name"]</td>
-                    <td>$row["med_name"]</td>
-                    <td>$row["dose_date"]</td>
-                    <td>$row["dose_time"]</td>
-                    <td>$row["dosage"]</td>
+                    <td><?php print $row["patient_name"];?></td>
+                    <td><?php print $row["med_name"];?></td>
+                    <td><?php print $row["dose_date"];?></td>
+                    <td><?php print $row["dose_time"];?></td>
+                    <td><?php print $row["dosage"];?></td>
                     </tr>
                 </tbody>
 
             <?php
                     }
 
-                    count ++;
+                    $id++;
             }
             ?>
 
