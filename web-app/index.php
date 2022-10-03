@@ -20,23 +20,7 @@
             <p>Mock table here</p>            
             <table class="table table-striped">
 
-            <?php
-                 //Check database
-                
-                $id = 1;
-                $total = "SELECT COUNT(*) FROM dosages;";
-
-                while ($id <= $total) {
-                    $sql="SELECT * FROM dosages WHERE id='$id'";
-                    $result=mysqli_query($db,$sql);
-                    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-
-                    print ("I'm here!");
-                    
-                    if(mysqli_num_rows($result) == 1)
-                    {
-            ?>
-
+                <!-- Table to display the records -->
                 <thead>
                     <tr>
                     <th>Patient Name</th>
@@ -46,6 +30,17 @@
                     <th>Dosage</th>
                     </tr>
                 </thead>
+
+                <?php
+                    // Check database
+                    // Display content from phpMyAdmin database
+                    
+                    $result=mysqli_query($db,"select * from dosages");
+
+                    while($row=mysqli_fetch_array($result))
+                    {
+                ?>
+
                 <tbody>
                     <tr>
                     <td><?php print $row["patient_name"];?></td>
@@ -58,9 +53,6 @@
 
             <?php
                     }
-
-                    $id++;
-            }
             ?>
 
             </table>
